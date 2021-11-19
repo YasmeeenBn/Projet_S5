@@ -1,8 +1,5 @@
 const puppeteer = require('puppeteer');
 const News = require('../models/news');
-const Organization = require('../models/organization');
-const Country = require('../models/country');
-const NewsBreakdown = require('../models/newsBreakdown');
 
 async function getNews() {
     var url = "https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNRFIzWjJnU0FtWnlLQUFQAQ?hl=fr&gl=MA&ceid=MA%3Afr";

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { request } = require("../app");
-var project = require("../models/projectpreprod");
+var project = require("../models/news");
 var country = require("../models/country");
 var thematique = require("../models/thematiques");
 var status = require("../models/status");
