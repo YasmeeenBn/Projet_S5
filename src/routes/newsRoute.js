@@ -3,139 +3,24 @@ const router = express.Router();
 
 const newsCtrl = require("../controllers/newsController");
 
-// router.get(
-//   "/projectsOfMonthByThematic/:id/:codeCountry",
-//   newsCtrl.getAllProjectsOfMonthByThematic
-// );
-// router.get("/numberProjects", projectpreprodCtrl.getNumberAllProjects);
-// router.get(
-//   "/projectsOfMonthByDonors/:idOrg/:codeCountry",
-//   newsCtrl.getAllProjectsOfMonthByDonors
-// );
-// router.get(
-//   "/projectsOfMonthByImplementers/:idOrg/:codeCountry",
-//   newsCtrl.getAllProjectsOfMonthByImplementers
-// );
+router.post(
+  "/",
+  newsCtrl.addNews
+);
 
-// // get all projects accepted
-// router.post(
-//   "/projectsAccepted/:codeCountry",
-//   projectpreprodCtrl.getAllProjectsAccepted
-// );
-// // accept project web master
-// router.put("/acceptProject/:projectId", projectpreprodCtrl.acceptProject);
+router.get(
+  "/newsDetailData/:news_id",
+  newsCtrl.newsDetailData
+);
 
-// //refuse project web master
-// router.put("/refuseProject/:projectId", projectpreprodCtrl.refuseProject);
-// router.get(
-//   "/getAllProjectsByCountryNull",
-//   projectpreprodCtrl.getAllProjectsByCountryNull
-// );
+router.delete("/:id", newsCtrl.deleteNews);
+router.get("/news_by_id/:id", newsCtrl.news_by_id);
 
-// router.get(
-//   "/byCodeCountry/:codeCountry",
-//   projectpreprodCtrl.getAllProjectsByCountry
-// );
-
-// router.post(
-//   "/byCodeCountryPagination/:codeCountry",
-//   projectpreprodCtrl.getAllProjectsByPaginationAndCountry
-// );
-// router.post(
-//   "/AddedByExpertPagination",
-//   projectpreprodCtrl.getAllProjectsAddedByExpertByPagination
-// );
-// router.get(
-//   "/projectsOfMonthByCodeCountry/:codeCountry",
-//   projectpreprodCtrl.getAllProjectsOfMonthByCountry
-// );
-
-// router.get(
-//   "/oneProjectOfMonthByCodeCountry/:codeCountry",
-//   projectpreprodCtrl.getOneProjectsOfMonthByCountry
-// );
-// // get global projects by keyword
-// router.get(
-//   "/globalProjectsByKeyWord",
-//   projectpreprodCtrl.globalProjectsByKeyWord
-// );
-
-// router.get("/projectsByStatus", projectpreprodCtrl.projectsByStatus);
-
-// router.get("/byFunder/:id", projectpreprodCtrl.projectsByFunder);
-// router.get("/byThematic/:id", projectpreprodCtrl.projectsByThematicc);
-// //insert new test item
-// router.post(
-//   "/",
-//   uploadMulter.single("projectImage"),
-//   projectpreprodCtrl.addProject
-// );
-// router.post(
-//   "/ByExpert",
-//   uploadMulter.single("projectImage"),
-//   projectpreprodCtrl.addProjectByExpert
-// );
-
-// router.post("/projectOfMonth", projectpreprodCtrl.getAFDBProjectsOfMonth);
-
-// //return the list of test items
-// // router.get("/:code?", projectpreprodCtrl.index);
-
-// // router.post("/list", projectpreprodCtrl.indexPost);
-
-// router.get(
-//   "/projectDetailData/:project_id",
-//   projectpreprodCtrl.projectDetailData
-// );
-
-// router.get(
-//   "/numberProjectsbyCodeCountry/:codeCountry",
-//   projectpreprodCtrl.getNumberProjectsByCountry
-// );
-
-// router.get(
-//   "/numberProjectsbyCodeCountryNull/:codeCountry",
-//   projectpreprodCtrl.getNumberProjectsByCountryNULL
-// );
-// //add project by webMaster
-// router.post(
-//   "/",
-//   uploadMulter.single("projectImage"),
-//   projectpreprodCtrl.addProject
-// );
-// // delete project by webMaster
-// router.delete("/:id", projectpreprodCtrl.deleteProject);
-// // router.get("/project_by_id/:id", projectpreprodCtrl.project_by_id);
-
-// // get projects by key word and code country
-// router.post("/searchByKeyword", projectpreprodCtrl.searchByKeyword);
-
-// // router.get("/project_by_id_v2", projectpreprodCtrl.project_by_id_v2);
-
-// router.put(
-//   "/enabelProjectOfMonth/:projectId/:codeCountry",
-//   projectpreprodCtrl.enablePojectOfMonth
-// );
-
-// router.put(
-//   "/disabledProjectOfMonth/:projectId",
-//   projectpreprodCtrl.disabledPojectOfMonth
-// );
-
-// router.put(
-//   "/:projectId",
-//   uploadMulter.single("projectImage"),
-//   projectpreprodCtrl.updateProject
-// );
-// router.get(
-//   "/projectsByCountryThematic/",
-//   projectpreprodCtrl.projectsByCountryThematic
-// );
-
-// router.get(
-//   "/projectsByOrg/",
-//   projectpreprodCtrl.projectsByOrg
-// );
+router.put(
+  "/:projectId",
+  uploadMulter.single("projectImage"),
+  projectpreprodCtrl.updateProject
+);
 
 
 module.exports = router;
