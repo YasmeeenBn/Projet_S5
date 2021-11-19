@@ -40,7 +40,5 @@ app.use("/news", newsRoutes);
 //  scrapping
 app.use("/scrappingNews", scrappingNewsRoutes);
 
-scrappingNewsRoutes
-
 
 module.exports = app;

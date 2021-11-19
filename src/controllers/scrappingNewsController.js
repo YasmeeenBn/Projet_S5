@@ -25,7 +25,6 @@ async function getNews() {
     return newsUrls
 }
 
-
 async function saveOrgArticles(orgInfo) {
     // search Organization Articles and save each article
     const articles = await getNews(orgInfo.orgId, orgInfo.orgName, orgInfo.countryId);
