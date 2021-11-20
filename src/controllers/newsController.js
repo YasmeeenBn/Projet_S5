@@ -9,15 +9,6 @@ exports.news_by_id = async (req, res, next) => {
   console.log(item);
 };
 
-exports.newsDetailData = async (req, res, next) => {
-  //get news id from URL
-  const _id = req.params.news_id;
-  const news_find = await news
-    .findById(_id)
-    // .populate({ path: "country", model: "Country" })
-  res.status(200).json(news_find);
-};
-
 exports.addNews = async (req, res, next) => {
   const news = new News(req.body);
   if (req.file) news.image_url = req.file.path;
