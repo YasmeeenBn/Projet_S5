@@ -7,9 +7,9 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 // Routes
-const Routes = require("./routes/InitDBRoute");
 const newsRoutes = require("./routes/newsRoute");
 const scrappingNewsRoutes = require("./routes/ScrappingNewsRoute");
+// const scrappingPlatformRoutes = require("./routes/ScrappingNewsRoute");
 
 // add Access-Control-Allow-Origin
 app.use((req, res, next) => {
