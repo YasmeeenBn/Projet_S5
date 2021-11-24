@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { request } = require("../app");
+// const { request } = require("../app");
 var news = require("../models/news");
 
 // get news by code
