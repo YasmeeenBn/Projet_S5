@@ -1,33 +1,45 @@
 const puppeteer = require('puppeteer');
 const News = require('../models/news');
 
-
-async function getArticleNews() {
-    //lien de l'article
+exports.getArticleNews1 = async (req, res, next) => {
     var article_url = "https://en.hespress.com/society";
     var browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     var page = (await browser.pages())[0];
     page.setDefaultNavigationTimeout(0);
     await page.goto(article_url, { waitUntil: 'networkidle2' });
     let newsUrls = await page.evaluate(() => {
-        //container de l'article dont on doit acceder au titre etc ..               
-         var link = document.querySelectorAll('div.card-img-top a.stretched-link')
-         var title = document.querySelectorAll('h3.card-title')
-
-         var article_url = articles.href;
+         var title = document.querySelector("#listing > div.col-12.col-md-7.col-lg-8.col-xl-9 > div.posts-categoy.row > div:nth-child(6) > div > div > div.card-img-top > a").title
+         var link = document.querySelector("#listing > div.col-12.col-md-7.col-lg-8.col-xl-9 > div.posts-categoy.row > div:nth-child(6) > div > div > div.card-img-top > a").href
+         var image = document.querySelector("#listing > div.col-12.col-md-7.col-lg-8.col-xl-9 > div.posts-categoy.row > div:nth-child(6) > div > div > div.card-img-top > a > div > img").src
+         var date = document.querySelector("#listing > div.col-12.col-md-7.col-lg-8.col-xl-9 > div.posts-categoy.row > div:nth-child(6) > div > div > div.card-body > div > div > span > small").textContent
         console.log(newsUrls);
+        console.log(title);
+        console.log(date);
+        console.log(image);
+        console.log(link);
+})
+};
+
+async function getArticleNews() {
+    var article_url = "https://en.hespress.com/society";
+    var browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    var page = (await browser.pages())[0];
+    page.setDefaultNavigationTimeout(0);
+    await page.goto(article_url, { waitUntil: 'networkidle2' });
+    let newsUrls = await page.evaluate(() => {
+         var title = document.querySelector("#listing > div.col-12.col-md-7.col-lg-8.col-xl-9 > div.posts-categoy.row > div:nth-child(6) > div > div > div.card-img-top > a").title
+         var link = document.querySelector("#listing > div.col-12.col-md-7.col-lg-8.col-xl-9 > div.posts-categoy.row > div:nth-child(6) > div > div > div.card-img-top > a").href
+         var image = document.querySelector("#listing > div.col-12.col-md-7.col-lg-8.col-xl-9 > div.posts-categoy.row > div:nth-child(6) > div > div > div.card-img-top > a > div > img").src
+         var date = document.querySelector("#listing > div.col-12.col-md-7.col-lg-8.col-xl-9 > div.posts-categoy.row > div:nth-child(6) > div > div > div.card-body > div > div > span > small").textContent
+        console.log(newsUrls);
+        console.log(title);
+        console.log(link);
     });
     await browser.close();
-    // forward google news urls to target urls
-    // for (var i = 0; i < newsUrls.length; i++) {
-    //     var targetUrl = await forwardUrl(newsUrls[i].article_url);
-    //     newsUrls[i].article_url = targetUrl[0];
-    // }
     return newsUrls
 }
  
 async function saveArticles() {
-    // search Organization Articles and save each article
     const articles = await getArticleNews();
     if (articles.length == 0) {
         return null;
@@ -43,44 +55,8 @@ async function saveArticles() {
     };
 }
 
-async function getNews2() {
-    var url = "https://news.google.com/search?q=%20when%3A30d";
-    console.log(url);
-    var browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
-    var page = (await browser.pages())[0];
-    page.setDefaultNavigationTimeout(0);
-    await page.goto(url, { waitUntil: 'networkidle2' });
-    let newsUrls = await page.evaluate((organizationId, countryId) => {
-        var urls = document.querySelectorAll('div[class = "NiLAwe y6IFtc R7GTQ keNKEd j7vNaf nID9nc"] > a');
-        if (urls == null) {
-            return null;
-        }
-        var dates = document.querySelectorAll('time[class = "WW6dff uQIVzc Sksgp"]');
-        var titles = document.querySelectorAll('h3[class = "ipQwMb ekueJc RD0gLb"] > a')
-        let articles = [];
-        for (var i = 0; i < urls.length; i++) {
-            try {
-                var articleUrl = urls[i].href;
-                var title = titles[i].innerText
-            } catch (error) {
-                // empty div
-                continue
-            }
-            articles.push({
-                "article_url": articleUrl,
-                "title": title,
-            })
-        }
-        return articles
-    }, organizationId, countryId);
-    await browser.close();
-    // forward google news urls to target urls
-    for (var i = 0; i < newsUrls.length; i++) {
-        var targetUrl = await forwardUrl(newsUrls[i].article_url);
-        newsUrls[i].article_url = targetUrl[0];
-    }
-    return newsUrls
-}
+
+
 
 
 
