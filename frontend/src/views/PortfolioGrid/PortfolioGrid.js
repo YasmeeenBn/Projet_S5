@@ -7,7 +7,7 @@ import { folio, partners } from './data';
 const PortfolioGrid = () => (
   <div>
     <Hero />
-    {/* <Partners data={partners} /> */}
+    <Partners data={partners} /> 
     <Section>
       <Main data={folio} />
     </Section>
