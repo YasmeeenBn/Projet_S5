@@ -5,6 +5,12 @@ from .models import Article
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import ArticleSerializer
+from django.http import HttpResponse
+from django.http import JsonResponse
+import os
+import csv
+import json
+from django.core import serializers
 
 
 def home(request):
@@ -23,6 +29,37 @@ def home(request):
         'articles': articles,
     }
     return render(request, 'api/home.html', context)
+
+def export_csv(request):
+    response = HttpResponse(content_type='text/csv')
+
+    writer = csv.writer(response)
+    writer.writerow(['title', 'date', 'imageUrl', 'link'])
+
+    for article in Article.objects.all().values_list('title', 'date', 'imageUrl', 'link'):
+        writer.writerow(article)
+
+    response['Content-Disposition'] = 'attachment; filename="articles.csv"'
+
+    return response
+
+def export_json(request):
+
+    response = list(Article.objects.values())
+
+    return JsonResponse(response,safe= False )
+
+def export_xml(request):
+    articles = Article.objects.all()
+    articles = serializers.serialize('xml', articles) 
+    return HttpResponse(articles,content_type="application/xml")
+    
+# def export_xml(request):
+#     articles = Article.objects.all()
+#     articles = serializers.serialize('rss', articles) 
+#     return HttpResponse(articles,content_type="application/rss")
+
+
 
 
 @api_view(['GET'])

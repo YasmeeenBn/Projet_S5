@@ -13,5 +13,9 @@
     <li>{{article.date}} : {{article.title}} : {{article.imageUrl}} </li>
     {% endfor %}
     
+    <a href="{% url 'export_csv' %}"  >export CSV </a>
+    <a href="{% url 'export_json' %}"  >export JSON </a>
+    <a href="{% url 'export_xml' %}"  >export XML </a>
+
 </body>
 </html>
