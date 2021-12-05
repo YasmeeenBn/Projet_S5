@@ -173,7 +173,7 @@ const Result = props => {
                   />
                 </InputAdornment>
               }
-              placeholder="Search for the blog"
+              placeholder="Search for the article"
             />
           </FormControl>
           <Button
@@ -188,11 +188,11 @@ const Result = props => {
       </Section>
       <SectionAlternate className={classes.sectionAlternate}>
         <Grid container spacing={isMd ? 4 : 2}>
-          <Grid item xs={12} container>
+          {/* <Grid item xs={12} container>
             <Typography variant="body1" className={classes.answerCount}>
               85 Result Found
             </Typography>
-          </Grid>
+          </Grid> */}
           {data.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index} data-aos="fade-up">
               <CardProduct

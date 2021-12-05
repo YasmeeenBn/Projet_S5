@@ -13,104 +13,55 @@ export const breadcrumb = [
 export const result = [
   {
     cover: {
-      src: 'https://assets.maccarianagency.com/the-front/photos/blog/cover1.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/blog/cover1.jpg 2x',
+      src: 'https://e1.hespress.com/wp-content/uploads/2021/11/pills-900x600.jpeg',
+      srcSet: 'https://e1.hespress.com/wp-content/uploads/2021/11/pills-900x600.jpeg 2x',
     },
-    title: 'Simple approach to Australian cafe',
+    title: 'World antimicrobial week sheds light on growing and dangerous misuse of antimicrobials',
     subtitle:
-      'Independent holistic & healthy café | Simple approach to Australian cafe culture in a relaxed environment',
+      'World antimicrobial week sheds light on growing and dangerous misuse of antimicrobials',
     author: {
       photo: {
-        src: 'https://assets.maccarianagency.com/the-front/photos/people/veronica-adams.jpg',
-        srcSet: 'https://assets.maccarianagency.com/the-front/photos/people/veronica-adams@2x.jpg 2x',
+        src: 'https://e1.hespress.com/wp-content/uploads/2021/11/pills-900x600.jpeg',
+        srcSet: 'https://e1.hespress.com/wp-content/uploads/2021/11/pills-900x600.jpeg 2x',
       },
-      name: 'Veronica Adams',
+      name: 'society',
     },
-    date: '04 Aug',
-  },
-  {
+    date: 'hursday 25 November 2021 - 20:00',
+  },  {
     cover: {
-      src: 'https://assets.maccarianagency.com/the-front/photos/blog/cover2.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/blog/cover2.jpg 2x',
+      src: 'https://e1.hespress.com/wp-content/uploads/2021/11/MAPPH_20210310_0058_MAP_map-900x600.jpg',
+      srcSet: 'https://e1.hespress.com/wp-content/uploads/2021/11/MAPPH_20210310_0058_MAP_map-900x600.jpg 2x',
     },
-    title: 'Adidas will release your favourite shoes',
+    title: 'Health Ministry launches national seasonal flu prevention campaign',
     subtitle:
-      'Get your favourite adidas shoes, clothing & accessories at the official website! adidas Training.',
+      'Health Ministry launches national seasonal flu prevention campaign',
     author: {
       photo: {
-        src: 'https://assets.maccarianagency.com/the-front/photos/people/akachi-luccini.jpg',
-        srcSet: 'https://assets.maccarianagency.com/the-front/photos/people/akachi-luccini@2x.jpg 2x',
+        src: 'https://e1.hespress.com/wp-content/uploads/2021/11/MAPPH_20210310_0058_MAP_map-900x600.jpg',
+        srcSet: 'https://e1.hespress.com/wp-content/uploads/2021/11/MAPPH_20210310_0058_MAP_map-900x600.jpg 2x',
       },
-      name: 'Akachi Luccini',
+      name: 'society',
     },
-    date: '04 Aug',
-  },
-  {
+    date:'Thursday 25 November 2021 - 19:55',
+  },{
     cover: {
-      src: 'https://assets.maccarianagency.com/the-front/photos/blog/cover3.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/blog/cover3.jpg 2x',
+      src: 'https://e1.hespress.com/wp-content/uploads/2021/08/MAPPH_20210226_0024_MAP_map-900x600.jpg',
+      srcSet: 'https://e1.hespress.com/wp-content/uploads/2021/08/MAPPH_20210226_0024_MAP_map-900x600.jpg 2x',
     },
-    title: 'NIKE Online Store launches the website‎',
+    title: 'Morocco records 115 Covid-19 cases and no deaths',
     subtitle:
-      'Be Your Best Every Time With Nike Shoes And Clothing. Shop Online. The Official Website. Home Of Everything Nike. Shop The Latest Releases Today! Types: Shoes, Tops.',
+      'Morocco records 115 Covid-19 cases and no deaths',
     author: {
       photo: {
-        src: 'https://assets.maccarianagency.com/the-front/photos/people/jack-smith.jpg',
-        srcSet: 'https://assets.maccarianagency.com/the-front/photos/people/jack-smith@2x.jpg 2x',
+        src: 'https://e1.hespress.com/wp-content/uploads/2021/08/MAPPH_20210226_0024_MAP_map-900x600.jpg',
+        srcSet: 'https://e1.hespress.com/wp-content/uploads/2021/08/MAPPH_20210226_0024_MAP_map-900x600.jpg 2x',
       },
-      name: 'Jack Smith',
+      name: 'society',
     },
-    date: '04 Aug',
+    date: 'Thursday 25 November 2021 - 16:11',
   },
-  {
-    cover: {
-      src: 'https://assets.maccarianagency.com/the-front/photos/blog/cover4.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/blog/cover4.jpg 2x',
-    },
-    title: "LARQ | World's First Self-cleaning Water Bottle‎",
-    subtitle:
-      "A self-cleaning water bottle that'll help you reach your hydration goal. Neutralizes up to 99%* of harmful, odor-causing bacteria using UV-C light.",
-    author: {
-      photo: {
-        src: 'https://assets.maccarianagency.com/the-front/photos/people/kate-segelson.jpg',
-        srcSet: 'https://assets.maccarianagency.com/the-front/photos/people/kate-segelson@2x.jpg 2x',
-      },
-      name: 'Kate Segelson',
-    },
-    date: '04 Aug',
-  },
-  {
-    cover: {
-      src: 'https://assets.maccarianagency.com/the-front/photos/blog/cover1.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/blog/cover1.jpg 2x',
-    },
-    title: 'Simple approach to Australian cafe',
-    subtitle:
-      'Independent holistic & healthy café | Simple approach to Australian cafe culture in a relaxed environment',
-    author: {
-      photo: {
-        src: 'https://assets.maccarianagency.com/the-front/photos/people/veronica-adams.jpg',
-        srcSet: 'https://assets.maccarianagency.com/the-front/photos/people/veronica-adams@2x.jpg 2x',
-      },
-      name: 'Veronica Adams',
-    },
-    date: '04 Aug',
-  },
-  {
-    cover: {
-      src: 'https://assets.maccarianagency.com/the-front/photos/blog/cover2.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/blog/cover2.jpg 2x',
-    },
-    title: 'Adidas will release your favourite shoes',
-    subtitle:
-      'Get your favourite adidas shoes, clothing & accessories at the official website! adidas Training.',
-    author: {
-      photo: {
-        src: 'https://assets.maccarianagency.com/the-front/photos/people/akachi-luccini.jpg',
-        srcSet: 'https://assets.maccarianagency.com/the-front/photos/people/akachi-luccini@2x.jpg 2x',
-      },
-      name: 'Akachi Luccini',
-    },
-    date: '04 Aug',
-  },
+
+
+
+
 ];

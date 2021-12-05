@@ -5,6 +5,7 @@
  */
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import homepage from 'views/homepage';
 import WithLayout from 'WithLayout';
 import { Main as MainLayout, Minimal as MinimalLayout, DocsLayout } from './layouts';
 
@@ -27,6 +28,18 @@ const Routes = () => {
           <WithLayout
             {...matchProps}
             component={PortfolioGridView}
+            layout={MainLayout}
+          />
+        )}
+      />
+
+            <Route
+        exact
+        path="/h"
+        render={matchProps => (
+          <WithLayout
+            {...matchProps}
+            component={homepage}
             layout={MainLayout}
           />
         )}

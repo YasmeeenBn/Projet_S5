@@ -25,13 +25,13 @@ const BlogSearch = () => {
   return (
     <div className={classes.root}>
       <SectionAlternate className={classes.sectionBreadcrumb}>
-        <Breadcrumb data={breadcrumb} />
+        {/* <Breadcrumb data={breadcrumb} /> */}
       </SectionAlternate>
       <Result data={result} />
       <Section>
-        <Newsletter />
+        {/* <Newsletter /> */}
       </Section>
-      <Divider />
+      {/* <Divider /> */}
     </div>
   );
 };
