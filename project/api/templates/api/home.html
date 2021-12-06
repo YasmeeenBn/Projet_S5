@@ -7,15 +7,22 @@
     <title>Homepage scraping site</title>
 </head>
 <body>
-    Body homepage
+        <a href="{% url 'hespress' %}"  >Hespress  </a>
+        <a href="{% url 'franceinfo' %}"  >France info  </a>
+    <p>
+    <a href="{% url 'export_csv' %}"  >export CSV </a>
+    <p>
+    <a href="{% url 'export_json' %}"  >export JSON </a>     <p>
+    <a href="{% url 'export_xml' %}"  >export XML </a>     <p>
+    <a href="{% url 'export_xlsx' %}"  >export XLSX </a>
+    <p>
+    <a href="{% url 'export_thematics_hespress_json' %}"  >export Hespress Thematics</a>
     <h1>titles</h1>
     {% for article in articles %}
-    <li>{{article.date}} : {{article.title}} : {{article.imageUrl}} </li>
+    <li>{{article.date}} : {{article.title}} : {{article.imageUrl}} : {{article.thematic}} </li>
     {% endfor %}
     
-    <a href="{% url 'export_csv' %}"  >export CSV </a>
-    <a href="{% url 'export_json' %}"  >export JSON </a>
-    <a href="{% url 'export_xml' %}"  >export XML </a>
+
 
 </body>
 </html>
