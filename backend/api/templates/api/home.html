@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage scraping site</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+</style>
+</head>
+<body>
+    <a href="{% url 'hespress' %}"  >Hespress  </a>
+    <a href="{% url 'franceinfo' %}"  >France info  </a>
+    <p>
+    <a href="{% url 'export_csv' %}"  >export CSV </a>
+    <p>
+    <a href="{% url 'export_json' %}"  >export JSON </a>     <p>
+    <a href="{% url 'export_xml' %}"  >export XML </a>     <p>
+    <a href="{% url 'export_xlsx' %}"  >export XLSX </a>
+    <p>
+    <a href="{% url 'export_thematics_hespress_json' %}"  >export Hespress Thematics</a>
+    <h1>Articles</h1>
+    <table>
+    <tr>
+        <th>Date</th>
+        <th>thematic</th>
+        <th>website</th>
+        <th>Title</th>
+        <th>link</th>
+    </tr>
+      {% for article in articles %}
+            <tr>
+                <td>{{article.date}} </td>
+                <td>{{article.thematic}} </td>
+                <td>{{article.website}} </td>
+                <td>{{article.title}} </td>
+                <td>{{article.link}} </td>
+            </tr>
+      {% endfor %}
+</table>
+
+    
+
+
+</body>
+</html>
