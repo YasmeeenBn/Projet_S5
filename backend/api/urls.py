@@ -6,6 +6,7 @@ from . import franceinfo
 from . import newyorktimes
 
 
+
 urlpatterns = [
     #home
     path('', hespress.hespress, name='homepage' ),
@@ -18,6 +19,10 @@ urlpatterns = [
     # new york times
     path('newyorktimes/', newyorktimes.newyorktimes, name='newyorktimes' ),
     path('thematics_nyt/', newyorktimes.thematics_nyt, name='thematics_nyt' ),
+    # h24
+    # path('h24/', h24.h24, name='h24' ),
+    # path('thematicsh24/', h24.thematicsh24, name='thematicsh24' ),
+
     #export
     path('export_thematics_hespress_json/', views.export_thematics_hespress_json, name='export_thematics_hespress_json'),
     path('export_csv/', views.export_csv, name='export_csv'),

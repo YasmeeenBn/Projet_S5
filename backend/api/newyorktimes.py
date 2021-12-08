@@ -40,6 +40,7 @@ def thematics_nyt(request):
 def newyorktimes(request):
     #scraping for a specific thematic
     All_thematics = Thematic.objects.filter(website = 'https://www.nytimes.com/')
+    i = 2
     for th in All_thematics :
         # Link of articles related to each thematic
         url = 'https://www.nytimes.com/section/'
@@ -48,23 +49,28 @@ def newyorktimes(request):
         soup = BeautifulSoup(webpage,"html.parser")
         results = soup.find("div", class_="css-13mho3u")
         articles = results.find_all("li", class_="css-ye6x8s")
-        
         # for each article, we bring infos related the way they are written in the website + its thematic
-        # for article in articles:
-            # Article.objects.get_or_create(
-            #     title = article.find("h2", class_="css-1j9dxys e15t083i0").text, 
-            #     date = article.find("div", class_="css-1lc2l26 e15t083i3"),
-            #     imageUrl=article.find('img').get('src'), 
-            #     link = article.find('div', class_="css-1l4spti").get('href'), 
-            #     thematic = th.thematic,
-            #     website = 'https://www.nytimes.com/'
-            # )
-        print(articles[0])
-        # for article in articles:
-        #     print(article.find("span", class_="todays-date"))
-            
-    articles = Article.objects.all()
+        for article in articles:
+            link = ''
+            count = str(i)
+            # style
+            if th.thematic == 'Style' :  
+                link = 'https://www.nytimes.com'+soup.select('#stream-panel > div.css-13mho3u > ol > li:nth-child('+count+') > div > div.css-1l4spti > a')[0].get('href'),
+            # Add the articles into DB
+            Article.objects.get_or_create(
+                title = article.find("h2", class_="css-1j9dxys e15t083i0").text, 
+                imageUrl = article.find('img').get('src'), 
+                thematic = th.thematic,
+                website = 'https://www.nytimes.com/',
+                link = link
+            )
+            i = i + 1
+
+    # articles = Article.objects.all()
+    articles = Article.objects.filter(website ='https://www.nytimes.com/')
     context ={
             'articles': articles,
-        }
+    }
     return render(request, 'api/home.html', context)
+
+          
