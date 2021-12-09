@@ -93,16 +93,9 @@ def export_xlsx(request):
 
 #api 
 @api_view(['GET'])
-def articleList(request):
-    req = Request('https://en.hespress.com/society/', headers={'User-Agent': 'Mozilla/5.0'})
-    webpage = urlopen(req).read()
-    soup = BeautifulSoup(webpage,"html.parser")
-    results = soup.find(id="listing")
-    articles = results.find_all("div", class_="cover")
+def articleListNY(request):
 
-    for article in articles:
-        Article.objects.get_or_create(title = article.find("h3", class_="card-title").text, date = article.find("small", class_="time").text, imageUrl=article.find('img').get('src'))
-
-    articles = Article.objects.all()
+    articles = Article.objects.filter(website='https://www.nytimes.com/')
     serilizer = ArticleSerializer(articles, many=True) #json
+
     return Response(serilizer.data)
