@@ -1,14 +1,31 @@
 /**
- * Caution: Consider this file when using react-scripts
- * 
- * You may delete this file and its occurrences from the project filesystem if you are using GatsbyJS or NextJS version
- */
-import React from 'react';
-import ReactDOM from 'react-dom';
+=========================================================
+* Material Dashboard 2 React - v2.0.0
+=========================================================
 
-import * as serviceWorker from './serviceWorker';
-import App from './App';
+* Product Page: https://www.creative-tim.com/product/material-dashboard-react
+* Copyright 2021 Creative Tim (https://www.creative-tim.com)
 
-ReactDOM.render(<App />, document.getElementById('root'));
+Coded by www.creative-tim.com
 
-serviceWorker.unregister();
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
+
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import App from "App";
+
+// Soft UI Context Provider
+import { MaterialUIControllerProvider } from "context";
+
+ReactDOM.render(
+  <BrowserRouter>
+    <MaterialUIControllerProvider>
+      <App />
+    </MaterialUIControllerProvider>
+  </BrowserRouter>,
+  document.getElementById("root")
+);
