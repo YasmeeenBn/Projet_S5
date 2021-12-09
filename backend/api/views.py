@@ -36,9 +36,15 @@ def export_json(request):
 
 #export data form json
 def export_thematics_hespress_json(request):
-    thematics = Thematic.objects.all()
+    thematics = Thematic.objects.filter(website = 'https://en.hespress.com/')
     thematics = serializers.serialize('json', thematics) 
     return HttpResponse(thematics,content_type="application/json")
+
+def export_thematics_ny_json(request):
+    thematics = Thematic.objects.filter(website = 'https://www.nytimes.com/')
+    thematics = serializers.serialize('json', thematics) 
+    return HttpResponse(thematics,content_type="application/json")
+
 
 #export data form xml
 def export_xml(request):

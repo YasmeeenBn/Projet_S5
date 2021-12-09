@@ -6,16 +6,6 @@ import MDTypography from "components/MDTypography";
 import MDAvatar from "components/MDAvatar";
 import MDBadge from "components/MDBadge";
 // import axios from "axios";
-// Images
-// import logoXD from "assets/images/small-logos/logo-xd.svg";
-// import logoAtlassian from "assets/images/small-logos/logo-atlassian.svg";
-// import logoSlack from "assets/images/small-logos/logo-slack.svg";
-// import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
-// import logoJira from "assets/images/small-logos/logo-jira.svg";
-// import logoInvesion from "assets/images/small-logos/logo-invision.svg";
-// import team2 from "assets/images/team-2.jpg";
-// import team3 from "assets/images/team-3.jpg";
-// import team4 from "assets/images/team-4.jpg";
 
 export default function data() {
   const Author = ({ name }) => (
@@ -38,9 +28,14 @@ export default function data() {
     </MDBox>
   );
 
+  // const [metropoleCities, setMetropoleCities] = useState([]);
+  // const cities = await axios.get(`http://127.0.0.1:8000/articles/ny/`);
+  // setMetropoleCities(cities.data);
+
+  // };
   // axios.get(`http://127.0.0.1:8000/articles/ny/`).then((res) => {
-  // const articles = res.data;
-  // articles = [(title = "yas")];
+  //   const articles = res.data;
+  //   articles = [(title = "yas")];
   // });
 
   return {
@@ -54,7 +49,7 @@ export default function data() {
 
     rows: [
       {
-        title: <Author name="yas" />,
+        title: <Author name="yasmine" />,
         thematic: <Job title="Manager" />,
         date: (
           <MDBox ml={-1}>
