@@ -10,7 +10,7 @@ import WithLayout from 'WithLayout';
 import { Main as MainLayout, Minimal as MinimalLayout, DocsLayout } from './layouts';
 
 import {
-  PortfolioGrid as PortfolioGridView,
+  // PortfolioGrid as PortfolioGridView,
   BlogSearch as BlogSearchView,
 
 } from './views';

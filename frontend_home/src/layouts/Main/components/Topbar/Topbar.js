@@ -130,9 +130,9 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
     setOpenedPopoverId(null);
   };
 
-  const landings = pages.landings;
-  const supportedPages = pages.pages;
-  const account = pages.account;
+  // const landings = pages.landings;
+  // const supportedPages = pages.pages;
+  // const account = pages.account;
 
   const MenuGroup = props => {
     const { item } = props;
@@ -165,95 +165,95 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
     );
   };
 
-  const LandingPages = () => {
-    const { services, apps, web } = landings.children;
-    return (
-      <div className={classes.menu}>
-        <div className={classes.menuItem}>
-          <MenuGroup item={services} />
-          <MenuGroup item={apps} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={web} />
-        </div>
-      </div>
-    );
-  };
+  // const LandingPages = () => {
+  //   const { services, apps, web } = landings.children;
+  //   return (
+  //     <div className={classes.menu}>
+  //       <div className={classes.menuItem}>
+  //         <MenuGroup item={services} />
+  //         <MenuGroup item={apps} />
+  //       </div>
+  //       <div className={classes.menuItem}>
+  //         <MenuGroup item={web} />
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
-  const SupportedPages = () => {
-    const {
-      career,
-      helpCenter,
-      company,
-      contact,
-      blog,
-      portfolio,
-    } = supportedPages.children;
-    return (
-      <div className={classes.menu}>
-        <div className={classes.menuItem}>
-          <MenuGroup item={career} />
-          <MenuGroup item={helpCenter} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={company} />
-          <MenuGroup item={contact} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={blog} />
-          <MenuGroup item={portfolio} />
-        </div>
-      </div>
-    );
-  };
+  // const SupportedPages = () => {
+  //   const {
+  //     career,
+  //     helpCenter,
+  //     company,
+  //     contact,
+  //     blog,
+  //     portfolio,
+  //   } = supportedPages.children;
+  //   return (
+  //     <div className={classes.menu}>
+  //       <div className={classes.menuItem}>
+  //         <MenuGroup item={career} />
+  //         <MenuGroup item={helpCenter} />
+  //       </div>
+  //       <div className={classes.menuItem}>
+  //         <MenuGroup item={company} />
+  //         <MenuGroup item={contact} />
+  //       </div>
+  //       <div className={classes.menuItem}>
+  //         <MenuGroup item={blog} />
+  //         <MenuGroup item={portfolio} />
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
-  const AccountPages = () => {
-    const { settings, signup, signin, password, error } = account.children;
-    return (
-      <div className={classes.menu}>
-        <div className={classes.menuItem}>
-          <MenuGroup item={settings} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={signup} />
-          <MenuGroup item={signin} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={password} />
-          <MenuGroup item={error} />
-        </div>
-      </div>
-    );
-  };
+  // const AccountPages = () => {
+  //   const { settings, signup, signin, password, error } = account.children;
+  //   return (
+  //     <div className={classes.menu}>
+  //       <div className={classes.menuItem}>
+  //         <MenuGroup item={settings} />
+  //       </div>
+  //       <div className={classes.menuItem}>
+  //         <MenuGroup item={signup} />
+  //         <MenuGroup item={signin} />
+  //       </div>
+  //       <div className={classes.menuItem}>
+  //         <MenuGroup item={password} />
+  //         <MenuGroup item={error} />
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
-  const renderPages = id => {
-    if (id === 'landing-pages') {
-      return <LandingPages />;
-    }
-    if (id === 'supported-pages') {
-      return <SupportedPages />;
-    }
-    if (id === 'account') {
-      return <AccountPages />;
-    }
-  };
+  // const renderPages = id => {
+  //   if (id === 'landing-pages') {
+  //     return <LandingPages />;
+  //   }
+  //   if (id === 'supported-pages') {
+  //     return <SupportedPages />;
+  //   }
+  //   if (id === 'account') {
+  //     return <AccountPages />;
+  //   }
+  // };
 
   return (
     <Toolbar disableGutters className={classes.toolbar} {...rest}>
       <div className={classes.logoContainer}>
         <a href="/" title="thefront">
-          <Image
+          {/* <Image
             className={classes.logoImage}
-            src={themeMode === 'light' ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg' : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'}
+            src={themeMode === 'light' ? 'frontend_home/public' : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'}
             alt="thefront"
             lazy={false}
-          />
+          /> */}
         </a>
       </div>
       <div className={classes.flexGrow} />
       <Hidden smDown>
         <List disablePadding className={classes.navigationContainer}>
-          {[landings, supportedPages, account].map((page, i) => (
+          {/* {[landings, supportedPages, account].map((page, i) => (
             <div key={page.id}>
               <ListItem
                 aria-describedby={page.id}
@@ -277,8 +277,8 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
                     }
                     fontSize="small"
                   />
-                </ListItemIcon>
-              </ListItem>
+                </ListItemIcon> */}
+              {/* </ListItem>
               <Popover
                 elevation={1}
                 id={page.id}
@@ -298,7 +298,7 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
                 <div>{renderPages(page.id)}</div>
               </Popover>
             </div>
-          ))}
+          ))} */}
           <ListItem className={clsx(classes.listItem, 'menu-item--no-dropdown')}>
             <DarkModeToggler themeMode={themeMode} onClick={() => themeToggler()} />
           </ListItem>
