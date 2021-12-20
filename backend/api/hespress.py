@@ -53,7 +53,7 @@ def hespress(request):
             Article.objects.get_or_create(
                 title = article.find("h3", class_="card-title").text, 
                 date = article.find("small", class_="time").text, 
-                imageUrl=article.find('img').get('src'), 
+                imageUrl = article.find('img').get('src'), 
                 link = article.find('a', class_='stretched-link').get('href'),
                 thematic = th.thematic,
                 website = website
@@ -63,3 +63,26 @@ def hespress(request):
             'articles': articles,
         }
     return render(request, 'api/home.html', context)
+
+# def hespress_test(request):
+#     #scraping for a specific thematic
+#     All_thematics = Thematic.objects.filter(website = 'https://en.hespress.com/')
+#     for th in All_thematics :
+#         # Link of articles related to each thematic
+#         website = 'https://en.hespress.com/'
+#         req = Request(website +th.thematic.lower()+'/', headers={'User-Agent': 'Mozilla/5.0'})
+#         webpage = urlopen(req).read()
+#         soup = BeautifulSoup(webpage,"html.parser")
+#         results = soup.find(id="listing")
+#         articles = results.find_all("div", class_="cover")
+#         #for each article, we bring infos related the way they are written in the website + its thematic
+#         for article in articles:
+#             Article.objects.get_or_create(
+#                 website = "..........",
+#                 link = soup.select('#listing > div.col-12.col-md-7.col-lg-8.col-xl-9 > div.posts-categoy.row > div:nth-child(1) > div > div > div.card-img-top > a').get('title'),
+#             )
+#     articles = Article.objects.filter(website="..........")
+#     context ={
+#             'articles': articles,
+#         }
+#     return render(request, 'api/home.html', context)

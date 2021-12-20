@@ -12,6 +12,7 @@ urlpatterns = [
     path('', hespress.hespress, name='homepage' ),
     # hespress
     path('hespress/', hespress.hespress, name='hespress' ),
+    # path('hespress_test/', hespress.hespress_test, name='hespress_test' ),
     path('thematicsHespress/', hespress.thematicsHespress, name='thematicsHespress' ),
     #france info
     path('franceinfo/', franceinfo.franceinfo, name='franceinfo' ),

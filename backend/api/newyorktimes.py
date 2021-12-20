@@ -57,8 +57,8 @@ def newyorktimes(request):
             # style
             if th.thematic == 'Style' :  
                 link = 'https://www.nytimes.com'+soup.select('#stream-panel > div.css-13mho3u > ol > li:nth-child('+count+') > div > div.css-1l4spti > a')[0].get('href'),
-            elif th.thematic == 'World' :  
-                link = 'https://www.nytimes.com'+soup.select('#stream-panel > div.css-13mho3u > ol > li:nth-child('+count2+') > div > div.css-1l4spti > a')[0].get('href'),
+            # elif th.thematic == 'World' :  
+            #     link = 'https://www.nytimes.com'+soup.select('#stream-panel > div.css-13mho3u > ol > li:nth-child('+count2+') > div > div.css-1l4spti > a')[0].get('href'),
             else :
                 link = ["none"]
             # Add the articles into DB
@@ -70,7 +70,7 @@ def newyorktimes(request):
                 link = link
             )
             i = i + 1
-            print(link[0])
+            # print(link[0])
 
     # articles = Article.objects.all()
     articles = Article.objects.filter(website ='https://www.nytimes.com/')
