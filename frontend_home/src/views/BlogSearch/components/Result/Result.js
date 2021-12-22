@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState} from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
@@ -122,6 +122,7 @@ const Result = props => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
+
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -147,9 +148,9 @@ const Result = props => {
       <Divider className={classes.divider} />
       <div className={classes.list}>
         <div className={classes.avatarContainer}>
-          <Avatar {...props.author.photo} className={classes.avatar} />
+          {/* <Avatar {...props.author.photo} className={classes.avatar} /> */}
           <Typography variant="body2" color="textPrimary">
-            {props.author.name}
+            {/* {props.author} */}
           </Typography>
         </div>
         <Typography variant="overline" color="textSecondary">
@@ -162,7 +163,7 @@ const Result = props => {
   return (
     <div className={className} {...rest}>
       <Section className={classes.pagePaddingTop}>
-        <div className={classes.searchInputContainer} data-aos="fade-up">
+        {/* <div className={classes.searchInputContainer} data-aos="fade-up">
           <FormControl fullWidth variant="outlined">
             <OutlinedInput
               startAdornment={
@@ -170,10 +171,12 @@ const Result = props => {
                   <Icon
                     fontIconClass="fas fa-search"
                     fontIconColor={colors.blueGrey[900]}
-                  />
-                </InputAdornment>
+                  /> */}
+                {/* </InputAdornment>
               }
               placeholder="Search for the article"
+              // setSearchText={setSearchText}
+              // searchText={searchText}
             />
           </FormControl>
           <Button
@@ -181,38 +184,36 @@ const Result = props => {
             variant="contained"
             size="large"
             className={classes.searchButton}
+              // setSearchText={setSearchText}
+              // searchText={searchText}
           >
             Search
           </Button>
-        </div>
+        </div> */}
       </Section>
       <SectionAlternate className={classes.sectionAlternate}>
         <Grid container spacing={isMd ? 4 : 2}>
-          {/* <Grid item xs={12} container>
-            <Typography variant="body1" className={classes.answerCount}>
-              85 Result Found
-            </Typography>
-          </Grid> */}
-          {data.map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index} data-aos="fade-up">
+
+        { data && data.map(data => 
+            <Grid item xs={12} sm={6} md={4} data-aos="fade-up">
               <CardProduct
                 withShadow
                 liftUp
                 className={classes.cardProduct}
                 mediaContent={
-                  <BlogMediaContent {...item.cover} alt={item.title} />
+                  <BlogMediaContent {...data.imageUrl} alt={data.title} />
                 }
                 cardContent={
                   <BlogContent
-                    title={item.title}
-                    subtitle={item.subtitle}
-                    author={item.author}
-                    date={item.date}
+                    title={data.title}
+                    subtitle={data.date}
+                    author={data.thematic}
+                    date={data.website}
                   />
                 }
               />
             </Grid>
-          ))}
+          )}
           <Grid item xs={12} container justify="center">
             <Button
               variant="contained"

@@ -14,6 +14,7 @@ from django.core import serializers
 from datetime import datetime
 from datetime import timedelta
 from openpyxl import Workbook
+from django.db.models import Q
 
 
 #export data from CSV
@@ -99,9 +100,21 @@ def export_xlsx(request):
 
 #api 
 @api_view(['GET'])
-def articleListNY(request):
+def articleList(request):
 
-    articles = Article.objects.filter(website='https://www.nytimes.com/')
+    articles = Article.objects.all()
     serilizer = ArticleSerializer(articles, many=True) #json
-
+    # print(artic)
     return Response(serilizer.data)
+
+@api_view(['POST'])
+def search(request):
+    query = request.data.get('query', '')
+
+    if query:
+        article = Article.objects.filter(Q(title__icontains=query))
+        # article = Article.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
+        serializer = ArticleSerializer(article, many=True)
+        return Response(serializer.data)
+    else:
+        return Response({"Articles": []})

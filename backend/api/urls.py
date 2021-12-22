@@ -31,5 +31,5 @@ urlpatterns = [
     path('export_json/', views.export_json, name='export_json'),
     path('export_xml/', views.export_xml, name='export_xml'),
     path('export_xlsx/', views.export_xlsx, name='export_xlsx'),
-    path('articles/ny/', views.articleListNY),
+    path('articles/', views.articleList),
 ]
