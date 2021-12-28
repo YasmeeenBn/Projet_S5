@@ -4,7 +4,7 @@ from . import views
 from . import hespress
 from . import franceinfo
 from . import newyorktimes
-
+from .views import Articlefilter
 
 
 urlpatterns = [
@@ -32,4 +32,11 @@ urlpatterns = [
     path('export_xml/', views.export_xml, name='export_xml'),
     path('export_xlsx/', views.export_xlsx, name='export_xlsx'),
     path('articles/', views.articleList),
+
+    #variables to automise the scraping code
+    path('variables/', views.ListVariable),
+
+    #search path for react frontend
+    path('search/', Articlefilter.as_view(), name='postsearch'),
+    
 ]

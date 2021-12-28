@@ -64,25 +64,65 @@ def hespress(request):
         }
     return render(request, 'api/home.html', context)
 
-# def hespress_test(request):
-#     #scraping for a specific thematic
-#     All_thematics = Thematic.objects.filter(website = 'https://en.hespress.com/')
-#     for th in All_thematics :
-#         # Link of articles related to each thematic
-#         website = 'https://en.hespress.com/'
-#         req = Request(website +th.thematic.lower()+'/', headers={'User-Agent': 'Mozilla/5.0'})
-#         webpage = urlopen(req).read()
-#         soup = BeautifulSoup(webpage,"html.parser")
-#         results = soup.find(id="listing")
-#         articles = results.find_all("div", class_="cover")
-#         #for each article, we bring infos related the way they are written in the website + its thematic
-#         for article in articles:
-#             Article.objects.get_or_create(
-#                 website = "..........",
-#                 link = soup.select('#listing > div.col-12.col-md-7.col-lg-8.col-xl-9 > div.posts-categoy.row > div:nth-child(1) > div > div > div.card-img-top > a').get('title'),
-#             )
-#     articles = Article.objects.filter(website="..........")
-#     context ={
-#             'articles': articles,
-#         }
-#     return render(request, 'api/home.html', context)
+def hespress_test(request):
+    #scraping for a specific thematic
+    variable = Variable.objects.all()
+    All_thematics = Thematic.objects.filter(website = 'https://en.hespress.com/')
+    for th in All_thematics :
+        # Link of articles related to each thematic
+        if var_website == 'https://en.hespress.com/' :
+            req = Request(website +th.thematic.lower()+'/', headers={'User-Agent': 'Mozilla/5.0'})
+            webpage = urlopen(req).read()
+            soup = BeautifulSoup(webpage,"html.parser")
+            results = soup.find(id="listing")
+            articles = results.find_all("div", class_="cover")
+            #for each article, we bring infos related the way they are written in the website + its thematic
+            for article in articles:
+                Article.objects.get_or_create(
+                    website =  soup.select(variable.var_website),
+                    link = soup.select(variable.var_link),
+                    title = soup.select(variable.var_title).text,
+                    date = soup.select(variable.var_date),
+                    imageUrl = soup.select(variable.var_imageUrl),
+                )
+        elif var_website == 'https://www.nytimes.com/':
+            req = Request(website +th.thematic.lower()+'/', headers={'User-Agent': 'Mozilla/5.0'})
+            webpage = urlopen(req).read()
+            soup = BeautifulSoup(webpage,"html.parser")
+            results = soup.find(id="listing")
+            articles = results.find_all("div", class_="cover")
+            #for each article, we bring infos related the way they are written in the website + its thematic
+            for article in articles:
+                Article.objects.get_or_create(
+                    
+                    website =  soup.select(variable.var_website).text,
+                    link = soup.select(variable.var_link),
+                    title = soup.select(variable.var_title),
+                    date = soup.select(variable.var_date),
+                    imageUrl = soup.select(variable.var_imageUrl),)
+        else :
+            req = Request(website +th.thematic.lower()+'/', headers={'User-Agent': 'Mozilla/5.0'})
+            webpage = urlopen(req).read()
+            soup = BeautifulSoup(webpage,"html.parser")
+            results = soup.find(id="listing")
+            articles = results.find_all("div", class_="cover")
+            #for each article, we bring infos related the way they are written in the website + its thematic
+            for article in articles:
+                Article.objects.get_or_create(
+                    
+                    
+                    website =  soup.select(variable.var_website).text,
+                    link = soup.select(variable.var_link),
+                    title = soup.select(variable.var_title),
+                    date = soup.select(variable.var_date),
+                    imageUrl = soup.select(variable.var_imageUrl))
+                # for i in var_title[i] :
+                # if var_title[i] = '(' and var_title[i+1] = ')':
+                #     title = soup.select(variable.var_title[i],'(',i,')',variable.var_title[i+2])
+        
+    articles = Article.objects.filter(website="https://en.hespress.com/")
+
+    context ={
+            'articles': articles,
+        }
+    return render(request, 'api/home.html', context)

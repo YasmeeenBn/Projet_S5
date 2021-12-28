@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./InputSearch.css";
 
 const InputSearch = ({ setSearchText, searchText, placeholder }) => {
+  
   const [tempText, settempText] = useState("");
   useEffect(() => {
     settempText(searchText);

@@ -1,21 +1,29 @@
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import MDBox from "components/MDBox";
-// import MDTypography from "components/MDTypography";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import MDInput from "components/MDInput";
-// import DataTable from "examples/Tables/DataTable";
-// Data
-// react-router components
-// import { Link } from "react-router-dom";
-// import IconButton from "@mui/material/IconButton";
-// import Icon from "@mui/material/Icon";
-// import { navbarIconButton } from "examples/Navbars/DashboardNavbar/styles";
+import Button from 'react-bootstrap/Button';
+// import axios from "axios";
+// import { useForm } from "react-hook-form";
+// import  { useState } from "react";
 
 function FormVariable() {
-  // const { columns, rows } = authorsTableData();
+
+  // const {  handleSubmit } = useForm();
+
+  // const onSubmit = async (data) => {
+  //   console.log(data);
+    // let formData = new FormData();
+    // // formData.append("var_title", data.var_title);
+    // // formData.append("var_link", data.var_link);
+    // axios.post('http://localhost:8000/variables/')
+    //     .then(response => setState({ var_title: response.data.var_title }));
+
+    // history.push(`/web-master/experts/${codeCountry}`);
+  // };
 
   return (
     <DashboardLayout>
@@ -31,35 +39,34 @@ function FormVariable() {
                   </MDBox>
                   <MDBox p={3} pl={3} pt={3} pb={3} pr={1}>
                     <p>Website</p>
-                    <MDInput label="Website" />
+                    <MDInput id="website" label="Website" />
                   </MDBox>
                   <MDBox p={3} pl={3} pt={1} pb={3} pr={1}>
                     <p>Title</p>
-                    <MDInput label="title here" />
+                    <MDInput id="title" label="title here" />
                   </MDBox>{" "}
                   <MDBox p={3} pl={3} pt={1} pb={3} pr={1}>
                     <p>Date</p>
-                    <MDInput label="date here" />
+                    <MDInput id="date" label="date here" />
                   </MDBox>{" "}
                   <MDBox p={3} pl={3} pt={1} pb={3} pr={1}>
                     <p>Image URL</p>
-                    <MDInput label="Image URL here" />
+                    <MDInput id="imageUrl" label="Image URL here" />
+                  </MDBox>{" "}                  
+                  <MDBox p={3} pl={3} pt={1} pb={3} pr={1}>
+                    <p>Thematic</p>
+                    <MDInput id="thematic" label="Thematic here" />
                   </MDBox>{" "}
                   <MDBox p={3} pl={3} pt={1} pb={3} pr={1}>
                     <p>Link</p>
-                    <MDInput label="Link here" />
+                    <MDInput id="link" label="Link here" />
                   </MDBox>
-                  {/* <MDBox p={3} pl={3} pt={1} pb={3} pr={1}>
-                    <p>Thematic</p>
-                    <MDInput label="Thematic here" />
-                  </MDBox> */}
-                  {/* <MDBox>
-                    <Link to="/authentication/sign-in/basic">
-                      <IconButton size="small" disableRipple>
-                        <Icon>account_circle</Icon>
-                      </IconButton>
-                    </Link>
-                  </MDBox> */}
+                  <MDBox p={3} pl={3} pt={1} pb={3} pr={1}>
+                        <Button type='submit' >Submit</Button>                    
+                        {/* <Button type='submit' onClick={handleSubmit(onSubmit)}>Submit</Button>                     */}
+                  </MDBox>
+                  
+  
                 </MDBox>
               </MDBox>
             </Card>

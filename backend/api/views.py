@@ -15,6 +15,9 @@ from datetime import datetime
 from datetime import timedelta
 from openpyxl import Workbook
 from django.db.models import Q
+from rest_framework.views import APIView
+from rest_framework import filters
+from rest_framework import generics
 
 
 #export data from CSV
@@ -107,8 +110,29 @@ def articleList(request):
     # print(artic)
     return Response(serilizer.data)
 
+class ListVariable(APIView):
+    def post(self, request, format=None):
+        serializer = VariableSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class Articlefilter(generics.ListAPIView):
+
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['^title','^thematic']
+    # '^' Starts-with search.
+    # '=' Exact matches.
+    # '@' Full-text search. (Currently only supported Django's PostgreSQL backend.)
+    # '$' Regex search.
+     
+
 @api_view(['POST'])
 def search(request):
+
     query = request.data.get('query', '')
 
     if query:
@@ -118,3 +142,5 @@ def search(request):
         return Response(serializer.data)
     else:
         return Response({"Articles": []})
+
+

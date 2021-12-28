@@ -118,8 +118,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+// const Result = props => {
 const Result = props => {
   const { data, className, ...rest } = props;
+  // const {  className, ...rest } = props;
   const classes = useStyles();
 
 
@@ -163,7 +165,7 @@ const Result = props => {
   return (
     <div className={className} {...rest}>
       <Section className={classes.pagePaddingTop}>
-        {/* <div className={classes.searchInputContainer} data-aos="fade-up">
+         <div className={classes.searchInputContainer} data-aos="fade-up">
           <FormControl fullWidth variant="outlined">
             <OutlinedInput
               startAdornment={
@@ -171,8 +173,8 @@ const Result = props => {
                   <Icon
                     fontIconClass="fas fa-search"
                     fontIconColor={colors.blueGrey[900]}
-                  /> */}
-                {/* </InputAdornment>
+                  /> 
+                 </InputAdornment>
               }
               placeholder="Search for the article"
               // setSearchText={setSearchText}
@@ -189,7 +191,7 @@ const Result = props => {
           >
             Search
           </Button>
-        </div> */}
+        </div> 
       </Section>
       <SectionAlternate className={classes.sectionAlternate}>
         <Grid container spacing={isMd ? 4 : 2}>
@@ -213,7 +215,7 @@ const Result = props => {
                 }
               />
             </Grid>
-          )}
+           )}  
           <Grid item xs={12} container justify="center">
             <Button
               variant="contained"

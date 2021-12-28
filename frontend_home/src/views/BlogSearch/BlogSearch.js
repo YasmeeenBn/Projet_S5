@@ -52,13 +52,14 @@ const BlogSearch = () => {
 
     return (
       <div className={classes.root}>
-      <InputSearch
+      {/* <InputSearch
           setSearchText={setSearchText}
           searchText={searchText}
           placeholder={`Search for projects`}
-      />
- 
+      /> */}
+         {/* { data && data.map(notes =>  */}
                 <Result data={notes} />
+         {/* )} */}
 
       </div>
     );

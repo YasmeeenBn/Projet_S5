@@ -28,15 +28,7 @@ export default function data() {
     </MDBox>
   );
 
-  // const [metropoleCities, setMetropoleCities] = useState([]);
-  // const cities = await axios.get(`http://127.0.0.1:8000/articles/ny/`);
-  // setMetropoleCities(cities.data);
 
-  // };
-  // axios.get(`http://127.0.0.1:8000/articles/ny/`).then((res) => {
-  //   const articles = res.data;
-  //   articles = [(title = "yas")];
-  // });
 
   return {
     columns: [
