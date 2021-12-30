@@ -1,0 +1,159 @@
+ <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <title>RSS S5</title>
+        <style id="xml-viewer-style">
+            div.header {
+                border-bottom: 2px solid black;
+                padding-bottom: 5px;
+                margin: 10px;
+            }
+
+            div.folder &gt; div.hidden {
+                display:none;
+            }
+
+            div.folder &gt; span.hidden {
+                display:none;
+            }
+
+            .pretty-print {
+                margin-top: 1em;
+                margin-left: 20px;
+                font-family: monospace;
+                font-size: 13px;
+            }
+
+            #webkit-xml-viewer-source-xml {
+                display: none;
+            }
+
+            .opened {
+                margin-left: 1em;
+            }
+
+            .comment {
+                white-space: pre;
+            }
+
+            .folder-button {
+                -webkit-user-select: none;
+                cursor: pointer;
+                display: inline-block;
+                margin-left: -10px;
+                width: 10px;
+                background-repeat: no-repeat;
+                background-position: left top;
+                vertical-align: bottom;
+            }
+
+            .fold {
+                background: url("data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' fill='%23909090' width='10' height='10'&gt;&lt;path d='M0 0 L8 0 L4 7 Z'/&gt;&lt;/svg&gt;");
+                height: 10px;
+            }
+
+            .open {
+                background: url("data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' fill='%23909090' width='10' height='10'&gt;&lt;path d='M0 0 L0 8 L7 4 Z'/&gt;&lt;/svg&gt;");
+                height: 10px;
+            }
+            .color {color:blue;}
+        </style>
+</head>
+<body>
+    <div id="webkit-xml-viewer-source-xml">
+    <rss xmlns="" version="2.0">
+        <channel class='color'>
+            <title> RSS Format from Database DJANGO</title>
+            <link>https://127.0.0.1:8000/</link>
+            <description>This describes the database we have in a RSS format</description>
+            <pubDate>Wed, 07 Feb 2007 14:20:24 GMT</pubDate>
+                <item>
+                    <title>News on interfaces of the Web in 2010</title>
+                    <link>https://www.xul.fr/en/2010.php</link>
+                    <description>Steve Jobs explains why iPad does not support</description>
+                    <pubDate>Sat, 11 Dec 10 09:41:06 +0100</pubDate>
+                </item> 
+        </channel>
+    </rss>
+</div>
+<div class="header">
+    <span>This XML file does not appear to have any style information associated with it. The document tree is shown below.</span><br />
+</div>
+<div class="pretty-print">
+    <div class="folder" id="folder0">
+        <div class="line">
+        <span class="folder-button fold"></span>
+        <span class="html-tag">&lt;rss<span class="html-attribute"> 
+        <span class="html-attribute-name">version</span>="<span class="html-attribute-value">2.0</span>"</span>&gt;</span>
+    </div>
+    <div class="opened">
+        <div class="folder" id="folder1">
+            <div class="line">
+                <span class="folder-button fold"></span>
+                <span class="html-tag">&lt;channel&gt;</span>
+            </div>
+            <!-- channel infos  -->
+            <div class="opened"><span>
+                    </span><div class="line">
+                        <span class="html-tag">&lt;title&gt;</span><span>RSS Format from xml related to database</span>
+                        <span class="html-tag">&lt;/title&gt;</span>
+                    </div><span>
+                    </span><div class="line">
+                        <span class="html-tag">&lt;link&gt;</span>
+                        <span>https://127.0.0.1:8000/</span><span class="html-tag">&lt;/link&gt;</span>
+                    </div><span>
+                    </span><div class="line">
+                        <span class="html-tag">&lt;description&gt;</span>
+                        <span>Getting all the tables in our databases and display it in a RSS format.</span>
+                        <span class="html-tag">&lt;/description&gt;</span>
+                    </div><span>
+                    </span><div class="line">
+                        <span class="html-tag">&lt;pubDate&gt;</span>
+                        <span>Wed, 29 Dec 2021 14:20:24 GMT</span>
+                        <span class="html-tag">&lt;/pubDate&gt;</span>
+                    </div>
+
+                    <!-- item numero 1 -->
+            <div class="folder" id="folder2">
+                        <div class="line">
+                            <span class="folder-button fold"></span>
+                            <span class="html-tag">&lt;item&gt;</span>
+                        </div>
+                    <div class="opened"><span>
+                        </span><div class="line"> <!-- title  -->
+                        <span class="html-tag">&lt;title&gt;</span>
+                        <span>News on interfaces of the Web in 2010</span>
+                        <span class="html-tag">&lt;/title&gt;</span>
+                    </div>
+                    <div class="line">  <!-- link -->
+                        <span class="html-tag">&lt;link&gt;</span>
+                        <span>https://www.xul.fr/en/2010.php</span>
+                        <span class="html-tag">&lt;/link&gt;</span>
+                    </div>
+                    <div class="line"> <!-- description -->
+                    <span class="html-tag">&lt;description&gt;</span>  
+                        <span>Steve Jobs explains why iPad does not support Adobe Flash:&lt;em&gt;At Adobe they are lazy.</span>
+                        <span class="html-tag">&lt;/description&gt;</span></div>
+                    <div class="line"> <!-- date  -->
+                        <span class="html-tag">&lt;pubDate&gt;</span> 
+                        <span>Sat, 11 Dec 10 09:41:06 +0100</span>
+                        <span class="html-tag">&lt;/pubDate&gt;</span>
+                    </div>
+                </div>
+                <span class="folded hidden">...</span>
+                <div class="line">
+                    <span class="html-tag">&lt;/item&gt;</span>
+                </div>
+        </div>
+   
+   
+    </div>
+    <!-- end of item  -->
+    </div>
+        <div class="line">
+            <span class="html-tag">&lt;/channel&gt;</span>
+        </div>
+    </div><span>
+</span></div>
+<!-- <span class="folded hidden">...</span> -->
+<div class="line"><span class="html-tag">&lt;/rss&gt;</span>
+</div></div></body></html> 

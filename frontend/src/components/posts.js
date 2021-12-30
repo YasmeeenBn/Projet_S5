@@ -29,10 +29,19 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		justifyContent: 'left',
 		alignItems: 'baseline',
+		fontSize: '14px',
+		textAlign: 'left',
+		marginBottom: theme.spacing(2),
+	},
+	postdate: {
+		display: 'flex',
+		justifyContent: 'left',
+		alignItems: 'baseline',
 		fontSize: '12px',
 		textAlign: 'left',
 		marginBottom: theme.spacing(2),
 	},
+
 }));
 
 const Posts = (props) => {
@@ -71,7 +80,12 @@ const Posts = (props) => {
 										<div className={classes.postText}>
 											<Typography color="textSecondary">
 												{post.website}...
-											</Typography>
+											</Typography>									
+										</div>										
+										<div className={classes.postdate}>
+											<Typography color="textSecondary" class="bg-success">
+												{post.date}...
+											</Typography>									
 										</div>
 									</CardContent>
 								</Card>
